@@ -42,6 +42,14 @@ const StudentList = () => {
   }, [dispatch]);
 
   const handleAddStudent = () => {
+    if (!newStudent.id) {
+      alert("Please enter a data");
+      return;
+    } else if (!newStudent.name) {
+      alert("Please enter a data");
+      return;
+    }
+
     dispatch(addStudent(newStudent));
     setNewStudent({
       id: "",
@@ -74,7 +82,7 @@ const StudentList = () => {
   };
 
   return (
-    <div className="space-x-4 space-y-4">     
+    <div className="space-x-4 space-y-4">
       <h2 className="text-center mb-4 text-3xl font-bold">Add Student</h2>
       <input
         type="text"
@@ -161,7 +169,6 @@ const StudentList = () => {
           ))}
         </tbody>
       </table>
-
     </div>
   );
 };
